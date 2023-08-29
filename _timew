@@ -1,0 +1,46 @@
+#compdef _timew timew
+
+_commands=(
+    'cancel'
+    'config:Display the current effective configuration'
+    'continue:Resume tracking (@1)'
+    'day:Summarize the tracked and untracked time over the day'
+    'modify'
+    'month:Summarize the tracked and untracked time over a month'
+    'start'
+    'stop'
+    'summary'
+    'tag'
+    'track'
+    'untag'
+    'week:Summarize the tracked and untracked time over a week'
+)
+
+_timew_commands() {
+    _describe 'command' _commands
+}
+
+_timew() {
+    local line
+
+    _arguments -C \
+        '1: :_timew_commands' \
+        '*: :(:ids :yesterday :week :month)' \
+}
+
+
+# todo
+__timew_hints() {
+}
+
+# todo
+__timew_extensions() {
+}
+
+# todo
+__timew_tags() {
+}
+
+# todo
+__timew_ids() {
+}
