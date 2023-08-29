@@ -1,19 +1,40 @@
 #compdef _timew timew
 
 _commands=(
-    'cancel'
-    'config:Display the current effective configuration'
-    'continue:Resume tracking (@1)'
+    'annotate:add an annotation to intervals'
+    'cancel:cancel time tracking'
+    'config:get and set Timewarrior configuration'
+    'continue:resume tracking of existing interval'
     'day:Summarize the tracked and untracked time over the day'
-    'modify'
+    'day:shows a chart depicting a single day (today by default)'
+    'delete:delete intervals'
+    'diagnostics:show diagnostic information'
+    'export:export tracked time in JSON'
+    'extensions:list available extensions'
+    'fill:adjust intervals to fill in surrounding gaps'
+    'gaps:display time tracking gaps'
+    'get:display DOM values'
+    'help:display help'
+    'join:join intervals'
+    'lengthen:lengthen intervals'
+    'modify:change start or end date of an interval'
     'month:Summarize the tracked and untracked time over a month'
-    'start'
-    'stop'
-    'summary'
-    'tag'
-    'track'
-    'untag'
-    'week:Summarize the tracked and untracked time over a week'
+    'month:shows a chart depicting a single month (current month by default)'
+    'move:change interval start-time'
+    'report:run an extension report'
+    'resize:set interval duration'
+    'revert:revert Timewarrior commands'
+    'shorten:shorten intervals'
+    'show:display configuration'
+    'split:split intervals'
+    'start:start time tracking'
+    'stop:stop time tracking'
+    'summary:display a time-tracking summary'
+    'tag:add tags to intervals'
+    'tags:display a list of tags'
+    'track:add intervals to the database'
+    'untag:remove tags from intervals'
+    'week:shows a chart depicting a single week (current week by default)'
 )
 
 _timew_commands() {
@@ -25,22 +46,43 @@ _timew() {
 
     _arguments -C \
         '1: :_timew_commands' \
-        '*: :(:ids :yesterday :week :month)' \
+        '*: :__timew_hints' \
 }
 
+_hints=(
+    "\:adjust:Automatically correct overlaps"
+    "\:blank:Leaves tracked time out of a report"
+    "\:color:Force color on, even if not connected to a TTY"
+    "\:day:The 24 hours of the current day"
+    "\:debug:Runs in debug mode, shows many runtime details"
+    "\:fill:Expand time to fill surrounding available gap"
+    "\:ids:Displays interval ID numbers in the summary report"
+    "\:lastmonth:Last month"
+    "\:lastquarter:Last quarter"
+    "\:lastweek:Last week"
+    "\:lastyear:Last year"
+    "\:month:This month"
+    "\:nocolor:Force color off, even if connected to a TTY"
+    "\:quarter:This quarter"
+    "\:quiet:Turns off all feedback. For automation"
+    "\:week:This week"
+    "\:year:This year"
+    "\:yes:Overrides confirmation by answering \'yes\' to the questions"
+    "\:yesterday:The 24 hours of the previous day"
+)
 
-# todo
 __timew_hints() {
+    _describe 'hints' _hints
 }
 
-# todo
+# todo -- need to query timew itself
 __timew_extensions() {
 }
 
-# todo
+# todo -- need to query timew itself
 __timew_tags() {
 }
 
-# todo
+# todo -- need to query timew itself
 __timew_ids() {
 }
