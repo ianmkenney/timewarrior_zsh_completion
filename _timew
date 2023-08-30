@@ -90,6 +90,8 @@ __timew_tags() {
         sed -E "s;^[[:space:]]+\"([[:space:][:alnum:]\.-]+)\":.*$;\1;g")
 
     for i in ${(f)vals}; do arr+=$i; done
+
+    arr+=( "${_hints[@]} ")
     
     _describe 'tags' arr
 }
