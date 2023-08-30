@@ -46,7 +46,7 @@ _timew() {
 
     _arguments -C \
         '1: :_timew_commands' \
-        '*: :__timew_hints' \
+        '*: :__timew_tags' 
 }
 
 _hints=(
@@ -79,8 +79,19 @@ __timew_hints() {
 __timew_extensions() {
 }
 
-# todo -- need to query timew itself
 __timew_tags() {
+    local vals
+    local arr
+
+    arr=()
+
+    vals=$(sed '1,1d' ~/.timewarrior/data/tags.data | \
+        sed '$d' | \
+        sed -E "s;^[[:space:]]+\"([[:space:][:alnum:]\.-]+)\":.*$;\1;g")
+
+    for i in ${(f)vals}; do arr+=$i; done
+    
+    _describe 'tags' arr
 }
 
 # todo -- need to query timew itself
