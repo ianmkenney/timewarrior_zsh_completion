@@ -1,6 +1,6 @@
 #compdef _timew timew
 
-data_dir() {
+_data_dir() {
     if [ -d ${HOME}/.local/share/timewarrior/data ]; then
         printf "${HOME}/.local/share/timewarrior/data"
         return 0
@@ -99,7 +99,7 @@ __timew_tags() {
 
     arr=()
 
-    vals=$(sed '1,1d' $(data_dir)/tags.data | \
+    vals=$(sed '1,1d' $(_data_dir)/tags.data | \
         sed '$d' | \
         sed -E "s;^[[:space:]]+\"([[:space:][:alnum:]\.-]+)\":.*$;\1;g")
 
