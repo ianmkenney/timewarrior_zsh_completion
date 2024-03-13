@@ -87,7 +87,7 @@ __timew_tags() {
 
     vals=$(sed '1,1d' ~/.timewarrior/data/tags.data | \
         sed '$d' | \
-        sed -E "s;^[[:space:]]+\"([[:space:][:alnum:]\.-_]+)\":.*$;\1;g")
+        sed -E "s;^[[:space:]]+\"([[:space:][:alnum:]\._-]+)\":.*$;\1;g")
 
     for i in ${(f)vals}; do arr+=$i; done
 
