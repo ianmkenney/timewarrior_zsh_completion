@@ -1,6 +1,7 @@
 #compdef _timew timew
 
 # zsh completion for timewarrior 1.7.1
+# timewarrior_zsh_completion v0.1.0
 
 _timew() {
     local ret=1
