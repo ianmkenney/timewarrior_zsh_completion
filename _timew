@@ -105,6 +105,7 @@ _commands=(
     'move:change interval start-time'
     'report:run an extension report'
     'resize:set interval duration'
+    'retag:replace all tags in intervals'
     'revert:revert Timewarrior commands'
     'shorten:shorten intervals'
     'show:display configuration'
