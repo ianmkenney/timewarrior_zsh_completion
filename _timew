@@ -6,8 +6,8 @@
 _timew() {
     local ret=1
 
-    if [ -d ${HOME}/.local/share/timewarrior/data ]; then
-        data_dir="${HOME}/.local/share/timewarrior/data"
+    if [ -d ${XDG_DATA_HOME:-${HOME}/.local/share}/timewarrior/data ]; then
+        data_dir="${XDG_DATA_HOME:-${HOME}/.local/share}/timewarrior/data"
     fi
 
     if [ -d ${HOME}/.timewarrior/data ]; then
