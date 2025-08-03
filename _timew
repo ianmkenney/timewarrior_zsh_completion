@@ -44,7 +44,7 @@ _timew() {
 
 		# iterated over the m tags of interval n
 		for m in {1..$m_tags}; do
-		    tag=$(timew get dom.tracked.${n}.tag.${m})
+		    tag=$(timew get dom.tracked.${n}.tag.${m} 2>/dev/null)
 		    interval_tags+=("$tag")
 		done
 		arr+="@${n}:${interval_tags[@]}"
